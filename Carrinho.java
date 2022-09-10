@@ -1,7 +1,6 @@
 class Carrinho{
   Produtos[] produtos;
   int qt = 0;
-  int nulo;
 
   Carrinho(int capacidade) {
     produtos = new Produtos[capacidade];
