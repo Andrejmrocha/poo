@@ -1,7 +1,7 @@
 class Carrinho{
   Produtos[] produtos;
   int qt = 0;
-  int nulo = 0;
+  int nulo;
 
   Carrinho(int capacidade) {
     produtos = new Produtos[capacidade];
@@ -14,7 +14,6 @@ class Carrinho{
         }
         else{
         soma += produtos[i].preco;
-        System.out.println("Somei "+i);
         }
     }
     return soma;
@@ -22,43 +21,42 @@ class Carrinho{
   
 
   void adicionarProduto(Produtos produto){
-    
-    if (qt >= produtos.length){ 
-      System.out.println("Carrinho cheio, não foi possível adicionar o "+produto.nome);
-    }
-    else{
-      if (nulo != 0){
-        produtos[nulo] = produto;
-        System.out.println(produto.nome + " adicionado"); 
-      }
-      else{
-        produtos[qt] = produto;
+    if(qt >= produtos.length){
+      System.out.println("Carrinho cheio, não foi possivel adicionar " + produto.nome);
+      return;
+    };
+    for(int i = 0;i < produtos.length; i++){
+      if(produtos[i] == null){
+        produtos[i] = produto;
+        System.out.println(produto.nome+" foi adicionado");
         qt += 1;
-        System.out.println(produto.nome + " adicionado");  
+        return;
       }
     }
-  }
+    }
+  
 
   void removerProduto(Produtos produto){
     for(int i = 0; i < qt; i++){
       if (produtos[i] == produto) { //checar produto a ser removido 
         System.out.println(produtos[i].nome + " foi removido");
         produtos[i] = null;
-        nulo = i;
-        qt = qt - 1;
-        
+        qt -= 1;
         }
         
       }
         
     }
-
-  void LimparCarro(Carrinho carrinho){
-    for(int i = 0; i <= carrinho.produtos.length; i++){
+  void LimparCarrinho(Carrinho carrinho){
+    for(int i = 0; i < produtos.length; i++){
       carrinho.produtos[i] = null;
+      System.out.println("deu certo");
     }
-    System.out.println("Tudo limpo");
+    System.out.println("carrinho vazio");
+    
   }
+
+  
   }
   
   
