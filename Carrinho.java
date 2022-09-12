@@ -8,12 +8,10 @@ class Carrinho{
   double calcularTotal() {
     double soma = 0;
     for (int i = 0; i < produtos.length; i++){
-        if( produtos[i] == null){
-          ;
+        if( produtos[i] != null){
+          soma += produtos[i].preco;
         }
-        else{
-        soma += produtos[i].preco;
-        }
+        
     }
     return soma;
   }
@@ -46,10 +44,11 @@ class Carrinho{
       }
         
     }
-  void LimparCarrinho(Carrinho carrinho){
+  void LimparCarrinho(){
     for(int i = 0; i < produtos.length; i++){
-      carrinho.produtos[i] = null;
-      System.out.println("deu certo");
+      System.out.println(produtos[i].nome+" removido");
+      produtos[i] = null;
+      
     }
     System.out.println("carrinho vazio");
     
