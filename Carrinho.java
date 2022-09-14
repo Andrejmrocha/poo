@@ -16,7 +16,7 @@ class Carrinho{
     return soma;
   }
   
-
+  
   void adicionarProduto(Produtos produto){
     if(qt >= produtos.length){
       System.out.println("Carrinho cheio, não foi possivel adicionar " + produto.nome);
@@ -32,7 +32,7 @@ class Carrinho{
     }
     }
   
-
+  
   void removerProduto(Produtos produto){
     for(int i = 0; i < qt; i++){
       if (produtos[i] == produto) { //checar produto a ser removido 
@@ -53,7 +53,7 @@ class Carrinho{
     System.out.println("carrinho vazio");
     
   }
-
+  
   
   }
   
